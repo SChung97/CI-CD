@@ -91,13 +91,23 @@ npm test
 
 # Job 2 - merge
 
-- must be automatically merged
+- any changes must be automatically merged into CI/Cd pipeline
 
-**steps to merge:**
+- first test manually before trying to automate:
+- switch to dev branch:
+  `git checkout -b dev` - this will create the dev branch if you haven't already, otherwise run `git checkout dev` to switch to existing dev branch
+- make a small change
+- push the changes:
 
-- switch to dev `git checkout dev`
-- make your changes
-- push the changes `git push -u origin dev`
+```
+git add .
+git commit -m "add-relevant-comment-here"
+git push -u origin dev
+```
+
+- return to the repo on github,
+
+**steps to automate merging branches:**
 
 - when creating new job, select copy from existing item (to inherit settings)
 - leave branch specifier as \*/dev - as the instance will build the branch and then merge into main
